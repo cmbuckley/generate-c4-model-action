@@ -1,9 +1,6 @@
-FROM alpine:latest
-
-RUN apk update
-RUN apk add plantuml
-
 FROM structurizr/cli:latest
+
+RUN microdnf -y install plantuml
 
 COPY entrypoint.sh /entrypoint.sh
 
