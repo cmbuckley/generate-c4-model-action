@@ -1,9 +1,5 @@
-FROM eclipse-temurin:11
-
-RUN apt update
-RUN apt install -y plantuml
+FROM structurizr/cli:latest
 
 COPY entrypoint.sh /entrypoint.sh
-COPY structurizr-cli /structurizr-cli
 
 ENTRYPOINT ["/entrypoint.sh"]
