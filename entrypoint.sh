@@ -20,7 +20,7 @@ target dir: $target_dir"
 
 echo "Exporting Structurizr DSL to PlantUML format"
 
-structurizr-cli export -w "$source" -f "plantuml"
+java -cp /usr/local/structurizr-cli:/usr/local/structurizr-cli/lib/* com.structurizr.cli.StructurizrCliApplication export -w "$source" -f "plantuml"
 
 if [ $? -ne 0 ]; then
     echo "An error occurred when attempting to export to PlantUML format" >&2
