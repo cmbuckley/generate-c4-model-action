@@ -41,7 +41,7 @@ mv "$source_dir"/*.puml "$tmp_dir"
 
 echo "Generating .png images"
 
-plantuml "$tmp_dir"/*.puml
+java /usr/local/plantuml/plantuml.jar "$tmp_dir"/*.puml
 
 echo "Moving C4 images to '$target_dir'"
 
