@@ -1,11 +1,12 @@
 FROM structurizr/cli:latest as structurizr
 
-FROM eclipse-temurin:11-alpine
+ARG PLANTUML_VERSION=1.2022.6
 
-COPY --from=structurizr /usr/local/structurizr-cli /usr/local/structurizr-cli
+RUN dnf makecache
+RUN dnf -y install curl plantuml
 
-RUN apk update
-RUN apk add plantuml
+#WORKDIR /usr/local/plantuml
+#RUN curl -SLo plantuml.jar https://github.com/plantuml/plantuml/releases/download/v${PLANTUML_VERSION}/plantuml-${PLANTUML_VERSION}.jar
 
 COPY entrypoint.sh /entrypoint.sh
 
