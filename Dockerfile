@@ -1,11 +1,11 @@
 FROM structurizr/cli:latest as structurizr
 
-FROM eclipse-temurin:11
+FROM eclipse-temurin:11-alpine
 
 COPY --from=structurizr /usr/local/structurizr-cli /usr/local/structurizr-cli
 
-RUN apt update
-RUN apt install -y plantuml
+RUN apk update
+RUN apk add plantuml
 
 COPY entrypoint.sh /entrypoint.sh
 
